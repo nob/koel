@@ -42,7 +42,7 @@ class SongController extends Controller
             'title' => trim(array_get($tags, 'title', '')),
             'length' => array_get($tags, 'duration', 0) ?: 0,
             'track' => (int) array_get($tags, 'track'),
-            'lyrics' => array_get($tags, 'lyrics', '') ?: 0,
+            'lyrics' => array_get($tags, 'lyrics', '') ?: '',
             'mtime' => time(),
         ]);
         event(new LibraryChanged());
