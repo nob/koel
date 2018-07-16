@@ -30,11 +30,7 @@ class SongController extends Controller
         $albumartist_tag = trim(array_get($tags, 'albumartist'));
         $compilation_tag = trim(array_get($tags, 'part_of_a_compilation'));
         $is_compilation = false;
-        // A "compilation" property can be determined by:
-        // - "part_of_a_compilation" tag (used by iTunes), or
-        // - "albumartist" (used by non-retarded applications).
-        // Also, the latter is only valid if the value is NOT the same as "artist".
-        if ($compilation_tag || ($albumartist_tag && $albumartist_tag !== $artist_tag)) {
+        if ($compilation_tag || ($albumartist_tag !== $artist_tag)) {
             $is_compilation = true;
         }
         $artist = Artist::get($artist_tag);
