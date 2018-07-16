@@ -37,7 +37,7 @@ class SongController extends Controller
         if ($compilation_tag || ($albumartist_tag && $albumartist_tag !== $artist_tag)) {
             $is_compilation = true;
         }
-        $artist = Artist::get(artist_tag);
+        $artist = Artist::get($artist_tag);
         $album = Album::get($artist, trim(array_get($tags, 'album')), $is_compilation);
 
         if ($cover = array_get($tags, 'cover')) {
